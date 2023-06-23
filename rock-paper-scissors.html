@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+  </head>
+   <body>
+    <button onclick="
+      playGame('rock')  ">Rock</button>
+    <button onclick="
+      playGame('paper')
+    ">Paper</button>
+    <button onclick="
+      playGame('scissors')
+    ">Scissors</button>
+    <script>
+
+         function playGame(playerMove){
+            let result = '';
+            const computerMove = pickComputerMove();
+            
+            if(playerMove ==='rock'){
+                if(computerMove === 'rock'){
+                    result = 'TIE';
+                }
+
+                else if(computerMove === 'scissors'){
+                    result = 'YOU WIN';
+                }
+
+                else if (computerMove === 'paper'){
+                    result = 'YOU LOSE';
+                }
+            }
+
+            else if(playerMove === 'paper'){
+                if(computerMove === 'rock'){
+                    result = 'YOU WIN';
+                }
+
+                else if(computerMove === 'scissors'){
+                    result = 'YOU LOSE';
+                }
+
+                else if (computerMove === 'paper'){
+                    result = 'TIE';
+                } 
+
+
+            }
+
+            else if(playerMove === 'scissors'){
+             if(computerMove === 'rock'){
+                    result = 'YOU LOSE';
+                }
+
+                else if(computerMove === 'scissors'){
+                    result = 'TIE';
+                }
+
+                else if (computerMove === 'paper'){
+                    result = 'YOU WIN';
+                }    
+            }
+   
+
+            alert(`you opted ${playerMove} computer opted  ${computerMove} ${result}`)
+         }
+
+
+
+        function pickComputerMove(){
+            let pick = Math.ceil(Math.random()*10)
+            let computerMove = '';
+
+            if(pick >= 0 && pick <= 3){
+                computerMove = 'rock';
+            }
+
+            else if(pick >= 4 && pick <= 7){
+                computerMove = 'paper';
+            }
+
+            else if(pick >= 7 && pick <= 10){
+                computerMove = 'scissors';
+            }
+
+            return computerMove;
+        }
+       
+    </script>
+   </body>
+</html>
