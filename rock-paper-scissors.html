@@ -2,91 +2,30 @@
 <html>
   <head>
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="rock-papers-scissors.css">
   </head>
    <body>
-    <button onclick="
-      playGame('rock')  ">Rock</button>
-    <button onclick="
+    <p class="title">ROCK PAPER SCISSORS<p>
+    <button class="move-button"  onclick="
+      playGame('rock') "><img size="20" class="move-icon"  src="images/rock-emoji.png" alt=""></button>
+    <button   class="move-button"  onclick="
       playGame('paper')
-    ">Paper</button>
-    <button onclick="
+    "><img class="move-icon"  src="images/paper-emoji.png" alt=""></button>
+    <button  class="move-button" onclick="
       playGame('scissors')
-    ">Scissors</button>
-    <script>
+    "><img  class="move-icon" src="images/scissors-emoji.png" alt=""></button>
+      <p class="js-result result"></p>
+      <p class="js-moves move-icon"></p>
+     <p class="score-button score"></p>
 
-         function playGame(playerMove){
-            let result = '';
-            const computerMove = pickComputerMove();
-            
-            if(playerMove ==='rock'){
-                if(computerMove === 'rock'){
-                    result = 'TIE';
-                }
-
-                else if(computerMove === 'scissors'){
-                    result = 'YOU WIN';
-                }
-
-                else if (computerMove === 'paper'){
-                    result = 'YOU LOSE';
-                }
-            }
-
-            else if(playerMove === 'paper'){
-                if(computerMove === 'rock'){
-                    result = 'YOU WIN';
-                }
-
-                else if(computerMove === 'scissors'){
-                    result = 'YOU LOSE';
-                }
-
-                else if (computerMove === 'paper'){
-                    result = 'TIE';
-                } 
-
-
-            }
-
-            else if(playerMove === 'scissors'){
-             if(computerMove === 'rock'){
-                    result = 'YOU LOSE';
-                }
-
-                else if(computerMove === 'scissors'){
-                    result = 'TIE';
-                }
-
-                else if (computerMove === 'paper'){
-                    result = 'YOU WIN';
-                }    
-            }
-   
-
-            alert(`you opted ${playerMove} computer opted  ${computerMove} ${result}`)
-         }
-
-
-
-        function pickComputerMove(){
-            let pick = Math.ceil(Math.random()*10)
-            let computerMove = '';
-
-            if(pick >= 0 && pick <= 3){
-                computerMove = 'rock';
-            }
-
-            else if(pick >= 4 && pick <= 7){
-                computerMove = 'paper';
-            }
-
-            else if(pick >= 7 && pick <= 10){
-                computerMove = 'scissors';
-            }
-
-            return computerMove;
-        }
-       
+    <button class="reset-button" onclick="
+    scores.wins =0,
+    scores.losses = 0,
+    scores.ties = 0
+    localStorage.removeItem('score');
+    updateScoreElement();
+    ">Reset scores</button>
+    <script src="rocl-papers-scissors.js">   
     </script>
    </body>
 </html>

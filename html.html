@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .body{
+            font-family: Arial;
+         }
+
+        .subscribe-button{
+            border:none;
+            background-color: black;
+            color:white;
+            padding:10px 15px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor:pointer;
+            margin-bottom:30px;
+
+        }
+        .is-subscribed{
+            background-color: rgb(240,240,240);
+            color:black;
+        }
+
+        .cost-input{
+            padding:10px;
+            font-size:15px;
+        }
+
+        .calculate-button{
+            background-color: green;
+            color:white;
+            padding:12px 15px;
+            border:none;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Youtube subscribe button</p>
+    <button  onclick="
+     subscribe();
+    " class="you-tube-button subscribe-button">subscribe</button>
+
+
+     <p>Amazon shipping calculator</p>
+     <input class="cost-input" placeholder="cost of order " type="text" onkeydown="
+       handleCostKey(event)
+     ">
+     <button class="calculate-button" onclick="calculateShippingCost();">Calculate</button>
+     <p class="total-cost"></p>
+
+    <script>
+        function subscribe(){
+            const btnEl = document.querySelector('.you-tube-button')
+
+            if(btnEl.innerHTML === 'subscribe'){
+            btnEl.innerHTML = 'subscribed';
+            btnEl.classList.add('is-subscribed');
+            } else {
+            btnEl.innerHTML = 'subscribe';
+            btnEl.classList.remove('is-subscribed');
+            }
+
+        }
+
+
+        function handleCostKey(event){
+            if(event.key === 'Enter'){
+            calculateShippingCost();
+       }
+        }
+
+       function calculateShippingCost(){
+        let cost = parseInt(document.querySelector('input').value);
+        if(cost < 40){
+           document.querySelector('.total-cost').innerHTML = ` shipping cost $ ${cost + 10}`
+        } else{
+            document.querySelector('.total-cost').innerHTML = ` shipping cost $ ${cost}`
+        }
+       }
+
+    </script>    
+</body>
+</html>
