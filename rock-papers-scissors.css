@@ -37,7 +37,7 @@ body{
     font-size: 20px;
 }
 
-.reset-button{
+.reset-button,.auto-play-button{
     background-color: white;
     padding:10px 14px;
     border:none;
